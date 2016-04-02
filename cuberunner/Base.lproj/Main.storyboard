@@ -45,6 +45,40 @@
             </objects>
             <point key="canvasLocation" x="445" y="473"/>
         </scene>
+        <!--Controller View Controller-->
+        <scene sceneID="rMg-nm-cSk">
+            <objects>
+                <viewController storyboardIdentifier="controller" id="7pv-w0-lof" customClass="ControllerViewController" customModule="cuberunner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dma-zN-j8g"/>
+                        <viewControllerLayoutGuide type="bottom" id="qmJ-Vx-EA1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ioc-ic-sUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-c3-zsa">
+                                <rect key="frame" x="0.0" y="20" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8FN-c3-zsa" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="3nN-BR-6z9"/>
+                            <constraint firstItem="8FN-c3-zsa" firstAttribute="top" secondItem="dma-zN-j8g" secondAttribute="bottom" id="D6q-mA-AxK"/>
+                            <constraint firstItem="8FN-c3-zsa" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="SXh-aG-Fvg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameIdLabel" destination="8FN-c3-zsa" id="C6u-61-fc9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXj-gX-bz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="473"/>
+        </scene>
         <!--Scanner View Controller-->
         <scene sceneID="HaA-nl-Nax">
             <objects>

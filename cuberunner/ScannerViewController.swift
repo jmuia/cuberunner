@@ -88,7 +88,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView?.frame = barCodeObject.bounds;
             
             if metadataObj.stringValue != nil {
-                print(metadataObj.stringValue)
+                transitionToGame(metadataObj.stringValue)
             }
         }
     }
@@ -96,6 +96,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func transitionToMenu() {
         if let menuViewController = storyboard!.instantiateViewControllerWithIdentifier("menu") as? MenuViewController {
             presentViewController(menuViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func transitionToGame(gameId: String) {
+        if let controllerViewController = storyboard!.instantiateViewControllerWithIdentifier("controller") as? ControllerViewController {
+            controllerViewController.gameId = gameId
+            presentViewController(controllerViewController, animated: true, completion: nil)
         }
     }
     
