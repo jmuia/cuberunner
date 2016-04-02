@@ -8,7 +8,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="cuberunner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MenuViewController" customModule="cuberunner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="234" y="164" width="132" height="30"/>
                                 <state key="normal" title="Connect to a Game"/>
                                 <connections>
-                                    <action selector="transistionToScanner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rIA-Ez-sbt"/>
+                                    <segue destination="B1t-xv-N0q" kind="show" id="wGX-LE-Ctz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,6 +44,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="445" y="473"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="HaA-nl-Nax">
+            <objects>
+                <viewController id="B1t-xv-N0q" customClass="ScannerViewController" customModule="cuberunner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jE8-xz-bn4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xrs-vP-CUr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eCx-6z-D4z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the code on the website to play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIB-8r-Ffw">
+                                <rect key="frame" x="0.0" y="40" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GIB-8r-Ffw" firstAttribute="centerX" secondItem="eCx-6z-D4z" secondAttribute="centerX" id="CCQ-V7-Dac"/>
+                            <constraint firstItem="GIB-8r-Ffw" firstAttribute="top" secondItem="jE8-xz-bn4" secondAttribute="bottom" constant="20" id="eDn-OP-AIb"/>
+                            <constraint firstItem="GIB-8r-Ffw" firstAttribute="width" secondItem="eCx-6z-D4z" secondAttribute="width" id="n1f-Tk-yXU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scanLabel" destination="GIB-8r-Ffw" id="I0R-EY-OnN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FM7-lu-zTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1173" y="473"/>
         </scene>
     </scenes>
 </document>

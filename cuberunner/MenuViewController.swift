@@ -14,9 +14,6 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    @IBAction func transistionToScanner(sender: AnyObject) {
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
