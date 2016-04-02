@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC6D44BD1CAF53CF00242D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */; };
-		DC6D44BF1CAF53CF00242D65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BE1CAF53CF00242D65 /* ViewController.swift */; };
+		DC6D44BF1CAF53CF00242D65 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */; };
 		DC6D44C21CAF53CF00242D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C01CAF53CF00242D65 /* Main.storyboard */; };
 		DC6D44C41CAF53CF00242D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C31CAF53CF00242D65 /* Assets.xcassets */; };
 		DC6D44C71CAF53CF00242D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C51CAF53CF00242D65 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		DC6D44B91CAF53CF00242D65 /* cuberunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cuberunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC6D44BE1CAF53CF00242D65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DC6D44C11CAF53CF00242D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC6D44C31CAF53CF00242D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC6D44C61CAF53CF00242D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */,
-				DC6D44BE1CAF53CF00242D65 /* ViewController.swift */,
+				DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */,
 				DC6D44C01CAF53CF00242D65 /* Main.storyboard */,
 				DC6D44C31CAF53CF00242D65 /* Assets.xcassets */,
 				DC6D44C51CAF53CF00242D65 /* LaunchScreen.storyboard */,
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6D44BF1CAF53CF00242D65 /* ViewController.swift in Sources */,
+				DC6D44BF1CAF53CF00242D65 /* MenuViewController.swift in Sources */,
 				DC6D44BD1CAF53CF00242D65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,10 +252,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cuberunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.josephmuia.cuberunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -263,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cuberunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.josephmuia.cuberunner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
