@@ -14,11 +14,13 @@ class ControllerViewController: UIViewController {
     @IBOutlet weak var gameIdLabel: UILabel!
     @IBOutlet weak var tapToStartLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var pauseButton: UIButton!
     
     var gameId: String!
     var gameActive = false
+    var gamePaused = false
     
-    let socket = SocketIOClient(socketURL: NSURL(string: "http://localhost:8080")!, options: [.Log(false), .ReconnectAttempts(0)])
+    var socket: SocketIOClient!
     let motionManager = CMMotionManager()
     
     override func viewDidLoad() {
@@ -26,7 +28,9 @@ class ControllerViewController: UIViewController {
         
         gameIdLabel.text = gameId
         tapToStartLabel.hidden = true
+        pauseButton.hidden = true
         
+        createSocket()
         addSocketHandlers()
     }
     
@@ -49,10 +53,14 @@ class ControllerViewController: UIViewController {
             let quat = (data?.attitude.quaternion)!
             let pitch = self.rad2deg(atan2(2*(quat.x*quat.w + quat.y*quat.z), 1 - 2*quat.x*quat.x - 2*quat.z*quat.z))
             
-            if (self.gameActive) {
+            if (self.gameActive && !self.gamePaused) {
                 self.socket.emit("controller:input", ["id": self.gameId, "value": pitch])
             }
         }
+    }
+    
+    func createSocket() {
+        socket = SocketIOClient(socketURL: NSURL(string: "http://10.10.21.113:1442")!, options: [.Log(false), .ReconnectAttempts(0)])
     }
     
     func addSocketHandlers() {
@@ -85,6 +93,9 @@ class ControllerViewController: UIViewController {
         }
         
         socket.on("error") { data in
+            print("error")
+            print(data.0)
+            
             self.socket.disconnect()
             self.socket.removeAllHandlers()
             
@@ -100,9 +111,27 @@ class ControllerViewController: UIViewController {
     }
     
     @IBAction func screenTapped(sender: AnyObject) {
+        print("screen tapped")
         if (!gameActive) {
             socket.emit("controller:start", ["id": self.gameId])
             gameActive = true
+            tapToStartLabel.hidden = true
+            pauseButton.hidden = false
+        }
+    }
+    
+    @IBAction func pauseTapped(sender: AnyObject) {
+        print("pause tapped")
+        if (gamePaused) {
+            print ("resumed")
+            gamePaused = false
+            socket.emit("controller:start", ["id": self.gameId])
+            pauseButton.setTitle("Pause", forState: UIControlState.Normal)
+        } else {
+            print ("paused")
+            gamePaused = true
+            socket.emit("controller:pause", ["id": self.gameId])
+            pauseButton.setTitle("Resume", forState: UIControlState.Normal)
         }
     }
     

@@ -73,6 +73,14 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-wE-9zn">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDg-iT-xKz">
+                                <rect key="frame" x="276.5" y="283.5" width="47" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseTapped:" destination="7pv-w0-lof" eventType="touchUpInside" id="BDC-pP-Bkh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -84,7 +92,9 @@
                             <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="Q5A-pA-N1t"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="SXh-aG-Fvg"/>
                             <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="bm4-1m-43E"/>
+                            <constraint firstItem="nDg-iT-xKz" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="d3c-Du-0z3"/>
                             <constraint firstItem="hdG-wE-9zn" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="d5U-6e-MQD"/>
+                            <constraint firstItem="nDg-iT-xKz" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="eyp-6v-mJI"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="XMb-MJ-GpI" appends="YES" id="T2j-uT-3ei"/>
@@ -93,6 +103,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="hdG-wE-9zn" id="Uyj-Fa-49J"/>
                         <outlet property="gameIdLabel" destination="8FN-c3-zsa" id="C6u-61-fc9"/>
+                        <outlet property="pauseButton" destination="nDg-iT-xKz" id="J1l-dc-q3W"/>
                         <outlet property="tapToStartLabel" destination="9Bv-wE-A8N" id="w5Y-Q3-XqS"/>
                     </connections>
                 </viewController>
