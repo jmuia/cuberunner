@@ -15,6 +15,7 @@ class ControllerViewController: UIViewController {
     @IBOutlet weak var tapToStartLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var hudImageView: UIImageView!
     
     var gameId: String!
     var gameActive = false
@@ -46,21 +47,40 @@ class ControllerViewController: UIViewController {
             return
         }
         
-        motionManager.deviceMotionUpdateInterval = 0.1
+        motionManager.deviceMotionUpdateInterval = 0.01
         let queue = NSOperationQueue()
         motionManager.startDeviceMotionUpdatesToQueue(queue) { (data, error) in
             
             let quat = (data?.attitude.quaternion)!
             let pitch = self.rad2deg(atan2(2*(quat.x*quat.w + quat.y*quat.z), 1 - 2*quat.x*quat.x - 2*quat.z*quat.z))
+            let rotation = -atan2(data!.gravity.y, data!.gravity.x)
+
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                self.hudImageView.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
+            }
+            
+            var percent = 0.0
+            
+            if (90 >= pitch && pitch > 0) { // left (+ve)
+                percent = pitch / 90
+            } else if (-90 <= pitch && pitch < -180) {
+                percent = (pitch + 90) / 90 + 1
+            }
+            
+            else if (-90 <= pitch && pitch < 0) { // right (-ve)
+                percent = pitch / 90
+            } else if (180 > pitch && pitch >= 90) {
+                percent = (pitch - 90) / 90 - 1
+            }
             
             if (self.gameActive && !self.gamePaused) {
-                self.socket.emit("controller:input", ["id": self.gameId, "value": pitch])
+                self.socket.emit("controller:input", ["id": self.gameId, "value": percent])
             }
         }
     }
     
     func createSocket() {
-        socket = SocketIOClient(socketURL: NSURL(string: "http://10.10.21.113:1442")!, options: [.Log(false), .ReconnectAttempts(0)])
+        socket = SocketIOClient(socketURL: NSURL(string: "http://cuberunner.herokuapp.com")!, options: [.Log(false), .ReconnectAttempts(0)])
     }
     
     func addSocketHandlers() {
@@ -137,6 +157,10 @@ class ControllerViewController: UIViewController {
     
     func rad2deg(rad: Double) -> Double {
         return (180/M_PI)*rad
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        motionManager.stopDeviceMotionUpdates()
     }
 
     

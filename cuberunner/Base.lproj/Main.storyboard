@@ -81,20 +81,27 @@
                                     <action selector="pauseTapped:" destination="7pv-w0-lof" eventType="touchUpInside" id="BDC-pP-Bkh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hud" translatesAutoresizingMaskIntoConstraints="NO" id="FE5-7R-r3z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="hdG-wE-9zn" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="2xS-Sg-A15"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="3nN-BR-6z9"/>
+                            <constraint firstItem="FE5-7R-r3z" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="Acc-w4-hn5"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="top" secondItem="dma-zN-j8g" secondAttribute="bottom" id="D6q-mA-AxK"/>
                             <constraint firstItem="9Bv-wE-A8N" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="OB4-X6-XUn"/>
+                            <constraint firstItem="FE5-7R-r3z" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="Q1v-3a-ix8"/>
                             <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="Q5A-pA-N1t"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="SXh-aG-Fvg"/>
                             <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="bm4-1m-43E"/>
                             <constraint firstItem="nDg-iT-xKz" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="d3c-Du-0z3"/>
                             <constraint firstItem="hdG-wE-9zn" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="d5U-6e-MQD"/>
                             <constraint firstItem="nDg-iT-xKz" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="eyp-6v-mJI"/>
+                            <constraint firstItem="FE5-7R-r3z" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="sQ7-dY-qFP"/>
+                            <constraint firstItem="FE5-7R-r3z" firstAttribute="height" secondItem="Ioc-ic-sUb" secondAttribute="height" id="yI6-Rk-Uff"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="XMb-MJ-GpI" appends="YES" id="T2j-uT-3ei"/>
@@ -103,6 +110,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="hdG-wE-9zn" id="Uyj-Fa-49J"/>
                         <outlet property="gameIdLabel" destination="8FN-c3-zsa" id="C6u-61-fc9"/>
+                        <outlet property="hudImageView" destination="FE5-7R-r3z" id="0da-iE-BDc"/>
                         <outlet property="pauseButton" destination="nDg-iT-xKz" id="J1l-dc-q3W"/>
                         <outlet property="tapToStartLabel" destination="9Bv-wE-A8N" id="w5Y-Q3-XqS"/>
                     </connections>
@@ -161,4 +169,7 @@
             <point key="canvasLocation" x="1173" y="473"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hud" width="1920" height="1080"/>
+    </resources>
 </document>
