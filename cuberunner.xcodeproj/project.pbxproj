@@ -11,7 +11,6 @@
 		DC6D44BF1CAF53CF00242D65 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */; };
 		DC6D44C21CAF53CF00242D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C01CAF53CF00242D65 /* Main.storyboard */; };
 		DC6D44C41CAF53CF00242D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C31CAF53CF00242D65 /* Assets.xcassets */; };
-		DC6D44C71CAF53CF00242D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C51CAF53CF00242D65 /* LaunchScreen.storyboard */; };
 		DC6D44CF1CAF5A7600242D65 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44CE1CAF5A7600242D65 /* ScannerViewController.swift */; };
 		DC7D15911CAF75DD00ED0DB1 /* ControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D15901CAF75DD00ED0DB1 /* ControllerViewController.swift */; };
 		DC7D162E1CAF8F4600ED0DB1 /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7D16211CAF8F2C00ED0DB1 /* SocketIOClientSwift.framework */; };
@@ -97,7 +96,6 @@
 		DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DC6D44C11CAF53CF00242D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC6D44C31CAF53CF00242D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC6D44C61CAF53CF00242D65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC6D44C81CAF53CF00242D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6D44CE1CAF5A7600242D65 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		DC7D15901CAF75DD00ED0DB1 /* ControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */,
 				DC6D44C01CAF53CF00242D65 /* Main.storyboard */,
 				DC6D44C31CAF53CF00242D65 /* Assets.xcassets */,
-				DC6D44C51CAF53CF00242D65 /* LaunchScreen.storyboard */,
 				DC6D44C81CAF53CF00242D65 /* Info.plist */,
 				DC6D44CE1CAF5A7600242D65 /* ScannerViewController.swift */,
 				DC7D15901CAF75DD00ED0DB1 /* ControllerViewController.swift */,
@@ -274,7 +271,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6D44C71CAF53CF00242D65 /* LaunchScreen.storyboard in Resources */,
 				DC6D44C41CAF53CF00242D65 /* Assets.xcassets in Resources */,
 				DC6D44C21CAF53CF00242D65 /* Main.storyboard in Resources */,
 			);
@@ -316,14 +312,6 @@
 				DC6D44C11CAF53CF00242D65 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC6D44C51CAF53CF00242D65 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC6D44C61CAF53CF00242D65 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

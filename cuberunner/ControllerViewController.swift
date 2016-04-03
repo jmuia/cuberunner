@@ -15,11 +15,20 @@ class ControllerViewController: UIViewController {
     @IBOutlet weak var tapToStartLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var pauseImageView: UIImageView!
     @IBOutlet weak var hudImageView: UIImageView!
+    @IBOutlet weak var resumeImageView: UIImageView!
+    @IBOutlet weak var quitImageView: UIImageView!
+    @IBOutlet weak var quitGameButton: UIButton!
+    @IBOutlet weak var resumeGameButton: UIButton!
+    @IBOutlet weak var highscoreLabel: UILabel!
+    @IBOutlet weak var scoreImageView: UIImageView!
+    @IBOutlet weak var highscoreImageView: UIImageView!
     
     var gameId: String!
     var gameActive = false
     var gamePaused = false
+    var gameOver = false
     
     var socket: SocketIOClient!
     let motionManager = CMMotionManager()
@@ -30,6 +39,14 @@ class ControllerViewController: UIViewController {
         gameIdLabel.text = gameId
         tapToStartLabel.hidden = true
         pauseButton.hidden = true
+        pauseImageView.hidden = true
+        quitImageView.hidden = true
+        quitGameButton.hidden = true
+        resumeImageView.hidden = true
+        resumeGameButton.hidden = true
+        highscoreImageView.hidden = true
+        scoreImageView.hidden = true
+        highscoreLabel.hidden = true
         
         createSocket()
         addSocketHandlers()
@@ -87,8 +104,19 @@ class ControllerViewController: UIViewController {
             self.tapToStartLabel.hidden = false
         }
         
-        socket.on("game:finished") { data, ack in
+        socket.on("game:gameOver") { data, ack in
             print("game completed")
+            print (data)
+            
+            let json = data.first as! Dictionary<String, Int>
+            
+            self.scoreImageView.hidden = false
+            self.highscoreLabel.text = String(json["score"]!)
+            self.highscoreLabel.hidden = false
+            
+            self.gameOver = true
+            self.resumeImageView.image = UIImage(named: "replay")!
+            self.showPauseMenu()
         }
         
         socket.on("game:notfound") { data, ack in
@@ -134,22 +162,66 @@ class ControllerViewController: UIViewController {
             gameActive = true
             tapToStartLabel.hidden = true
             pauseButton.hidden = false
+            pauseImageView.hidden = false
         }
     }
     
     @IBAction func pauseTapped(sender: AnyObject) {
         print("pause tapped")
-        if (gamePaused) {
-            print ("resumed")
-            gamePaused = false
-            socket.emit("controller:start", ["id": self.gameId])
-            pauseButton.setTitle("Pause", forState: UIControlState.Normal)
+        
+        showPauseMenu()
+        socket.emit("controller:pause", ["id": self.gameId])
+    }
+    
+    @IBAction func quitTapped(sender: AnyObject) {
+        print("quit tapped")
+        if (!gameOver) {
+            socket.emit("controller:quit", ["id": self.gameId])
         } else {
-            print ("paused")
-            gamePaused = true
-            socket.emit("controller:pause", ["id": self.gameId])
-            pauseButton.setTitle("Resume", forState: UIControlState.Normal)
+            transitionToMenu()
         }
+        
+    }
+    
+    @IBAction func resumeTapped(sender: AnyObject) {
+        print("resume tapped")
+        if (gameOver) {
+            self.resumeImageView.image = UIImage(named: "resume")!
+            gameOver = false
+        }
+        
+        hidePauseMenu()
+        socket.emit("controller:start", ["id": self.gameId])
+    }
+    
+    func hidePauseMenu() {
+        gamePaused = false
+        pauseButton.hidden = false
+        pauseImageView.hidden = false
+        tapToStartLabel.hidden = true
+        
+        quitImageView.hidden = true
+        quitGameButton.hidden = true
+        resumeImageView.hidden = true
+        resumeGameButton.hidden = true
+        
+        highscoreImageView.hidden = true
+        scoreImageView.hidden = true
+        highscoreLabel.hidden = true
+    }
+    
+    func showPauseMenu() {
+        gamePaused = true
+        pauseButton.hidden = true
+        pauseImageView.hidden = true
+        
+        tapToStartLabel.text = ""
+        tapToStartLabel.hidden = false
+        
+        quitImageView.hidden = false
+        quitGameButton.hidden = false
+        resumeImageView.hidden = false
+        resumeGameButton.hidden = false
     }
     
     func rad2deg(rad: Double) -> Double {
