@@ -11,6 +11,7 @@ import UIKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var scanLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -19,15 +20,26 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let attributedString = NSAttributedString(string: scanLabel.text!, attributes: [
+        let attributedScanString = NSAttributedString(string: scanLabel.text!, attributes: [
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSStrokeWidthAttributeName: NSNumber(float: -2),
             NSFontAttributeName: UIFont.systemFontOfSize(17.0)
         ])
         
-        scanLabel.attributedText = attributedString
+        scanLabel.attributedText = attributedScanString
         scanLabel.hidden = true
+        
+        let attributedCancelString = NSAttributedString(string: (cancelButton.titleLabel?.text)!, attributes: [
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSStrokeColorAttributeName: UIColor.blackColor(),
+            NSStrokeWidthAttributeName: NSNumber(float: -2),
+            NSFontAttributeName: UIFont.systemFontOfSize(20.0)
+        ])
+        
+        cancelButton.setAttributedTitle(attributedCancelString, forState: .Normal)
+        
+        cancelButton.hidden = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -62,6 +74,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         view.bringSubviewToFront(scanLabel)
         scanLabel.hidden = false
         
+        view.bringSubviewToFront(cancelButton)
+        cancelButton.hidden = false
+        
         qrCodeFrameView = UIView()
         qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
         qrCodeFrameView?.layer.borderWidth = 2
@@ -93,6 +108,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    @IBAction func cancelTapped(sender: AnyObject) {
+        transitionToMenu()
+    }
+    
     func transitionToMenu() {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -105,7 +124,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             let pvc = self.presentingViewController!
             
             pvc.dismissViewControllerAnimated(false, completion: {
-                pvc.presentViewController(controllerViewController, animated: true, completion: nil)
+                pvc.presentViewController(controllerViewController, animated: false, completion: nil)
             })
             
         }

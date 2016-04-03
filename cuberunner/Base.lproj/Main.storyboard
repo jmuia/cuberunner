@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -117,19 +118,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the code on the website to play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIB-8r-Ffw">
-                                <rect key="frame" x="0.0" y="40" width="600" height="21"/>
+                                <rect key="frame" x="0.0" y="539.5" width="600" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2X2-zO-cGY">
+                                <rect key="frame" x="40" y="40" width="85" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="B1t-xv-N0q" eventType="touchUpInside" id="Trz-zV-Cmu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GIB-8r-Ffw" firstAttribute="centerX" secondItem="eCx-6z-D4z" secondAttribute="centerX" id="CCQ-V7-Dac"/>
-                            <constraint firstItem="GIB-8r-Ffw" firstAttribute="top" secondItem="jE8-xz-bn4" secondAttribute="bottom" constant="20" id="eDn-OP-AIb"/>
+                            <constraint firstItem="2X2-zO-cGY" firstAttribute="top" secondItem="jE8-xz-bn4" secondAttribute="bottom" constant="20" id="caA-Vg-6oK"/>
                             <constraint firstItem="GIB-8r-Ffw" firstAttribute="width" secondItem="eCx-6z-D4z" secondAttribute="width" id="n1f-Tk-yXU"/>
+                            <constraint firstItem="Xrs-vP-CUr" firstAttribute="top" secondItem="GIB-8r-Ffw" secondAttribute="bottom" constant="40" id="p9q-fV-kyP"/>
+                            <constraint firstItem="2X2-zO-cGY" firstAttribute="leading" secondItem="eCx-6z-D4z" secondAttribute="leadingMargin" constant="20" id="szw-XY-Qg0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="2X2-zO-cGY" id="iRI-IF-bDA"/>
                         <outlet property="scanLabel" destination="GIB-8r-Ffw" id="I0R-EY-OnN"/>
                     </connections>
                 </viewController>
