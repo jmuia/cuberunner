@@ -70,7 +70,7 @@ class ControllerViewController: UIViewController {
 
             var rotation = -atan2(data!.gravity.y, data!.gravity.x)
             
-            if UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft {
+            if data!.gravity.x < 0 {
                rotation += M_PI
             }
 
