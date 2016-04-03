@@ -63,19 +63,44 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap anywhere to start!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-wE-A8N">
+                                <rect key="frame" x="0.0" y="287" width="600" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-wE-9zn">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="hdG-wE-9zn" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="2xS-Sg-A15"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="3nN-BR-6z9"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="top" secondItem="dma-zN-j8g" secondAttribute="bottom" id="D6q-mA-AxK"/>
+                            <constraint firstItem="9Bv-wE-A8N" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="OB4-X6-XUn"/>
+                            <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerY" secondItem="Ioc-ic-sUb" secondAttribute="centerY" id="Q5A-pA-N1t"/>
                             <constraint firstItem="8FN-c3-zsa" firstAttribute="width" secondItem="Ioc-ic-sUb" secondAttribute="width" id="SXh-aG-Fvg"/>
+                            <constraint firstItem="9Bv-wE-A8N" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="bm4-1m-43E"/>
+                            <constraint firstItem="hdG-wE-9zn" firstAttribute="centerX" secondItem="Ioc-ic-sUb" secondAttribute="centerX" id="d5U-6e-MQD"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XMb-MJ-GpI" appends="YES" id="T2j-uT-3ei"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="hdG-wE-9zn" id="Uyj-Fa-49J"/>
                         <outlet property="gameIdLabel" destination="8FN-c3-zsa" id="C6u-61-fc9"/>
+                        <outlet property="tapToStartLabel" destination="9Bv-wE-A8N" id="w5Y-Q3-XqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXj-gX-bz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XMb-MJ-GpI">
+                    <connections>
+                        <action selector="screenTapped:" destination="7pv-w0-lof" id="8Zk-CU-W52"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1910" y="473"/>
         </scene>
