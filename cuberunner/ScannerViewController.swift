@@ -143,5 +143,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         return true
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 
 }

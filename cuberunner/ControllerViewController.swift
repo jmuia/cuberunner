@@ -50,31 +50,28 @@ class ControllerViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 0.01
         let queue = NSOperationQueue()
         motionManager.startDeviceMotionUpdatesToQueue(queue) { (data, error) in
+
+            var rotation = -atan2(data!.gravity.y, data!.gravity.x)
             
-            let quat = (data?.attitude.quaternion)!
-            let pitch = self.rad2deg(atan2(2*(quat.x*quat.w + quat.y*quat.z), 1 - 2*quat.x*quat.x - 2*quat.z*quat.z))
-            let rotation = -atan2(data!.gravity.y, data!.gravity.x)
+            if UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft {
+               rotation += M_PI
+            }
 
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.hudImageView.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
             }
             
-            var percent = 0.0
-            
-            if (90 >= pitch && pitch > 0) { // left (+ve)
-                percent = pitch / 90
-            } else if (-90 <= pitch && pitch < -180) {
-                percent = (pitch + 90) / 90 + 1
-            }
-            
-            else if (-90 <= pitch && pitch < 0) { // right (-ve)
-                percent = pitch / 90
-            } else if (180 > pitch && pitch >= 90) {
-                percent = (pitch - 90) / 90 - 1
+            var rot = 0.0
+            if (data!.gravity.x > 0) {
+                // right = +ve, left = -ve
+                rot = -data!.gravity.y
+            } else if (data!.gravity.x < 0) {
+                // right = -ve, left = +ve
+                rot = data!.gravity.y
             }
             
             if (self.gameActive && !self.gamePaused) {
-                self.socket.emit("controller:input", ["id": self.gameId, "value": percent])
+                self.socket.emit("controller:input", ["id": self.gameId, "value": rot])
             }
         }
     }
