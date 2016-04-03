@@ -42,19 +42,29 @@
                             <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-94-DPd">
                                 <rect key="frame" x="180" y="256" width="240" height="240"/>
                                 <connections>
-                                    <segue destination="B1t-xv-N0q" kind="show" id="wGX-LE-Ctz"/>
+                                    <segue destination="B1t-xv-N0q" kind="show" action="showDetailViewController:sender:" id="wGX-LE-Ctz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fZ-Ae-IMq">
+                                <rect key="frame" x="277" y="520" width="46" height="30"/>
+                                <connections>
+                                    <segue destination="u9M-6H-HOG" kind="show" id="7Cy-VX-1JS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4fZ-Ae-IMq" firstAttribute="centerX" secondItem="Tb0-ik-yKk" secondAttribute="centerX" id="2nO-wS-iMb"/>
                             <constraint firstItem="XU3-jp-I2z" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="5g6-9W-oRg"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A27-gy-C2D"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="centerY" secondItem="XU3-jp-I2z" secondAttribute="centerY" id="BeO-y1-kGE"/>
+                            <constraint firstItem="4fZ-Ae-IMq" firstAttribute="centerY" secondItem="Tb0-ik-yKk" secondAttribute="centerY" id="KcI-KL-lzi"/>
+                            <constraint firstItem="4fZ-Ae-IMq" firstAttribute="height" secondItem="Tb0-ik-yKk" secondAttribute="height" id="KmB-3d-EE1"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="width" secondItem="XU3-jp-I2z" secondAttribute="width" id="Mtt-So-zWw"/>
                             <constraint firstItem="XU3-jp-I2z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UaJ-zt-uXu"/>
                             <constraint firstItem="1OT-98-B6d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yvs-n9-NvH"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="height" secondItem="XU3-jp-I2z" secondAttribute="height" id="ZkU-fy-7ld"/>
+                            <constraint firstItem="4fZ-Ae-IMq" firstAttribute="width" secondItem="Tb0-ik-yKk" secondAttribute="width" id="bjT-zC-skb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Tb0-ik-yKk" secondAttribute="bottom" constant="40" id="dVH-TT-VlN"/>
                             <constraint firstItem="1OT-98-B6d" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="gdu-5s-isK"/>
                             <constraint firstItem="Tb0-ik-yKk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="gq8-eu-8e3"/>
@@ -276,9 +286,69 @@
             </objects>
             <point key="canvasLocation" x="1173" y="473"/>
         </scene>
+        <!--High Scores-->
+        <scene sceneID="23l-og-D1R">
+            <objects>
+                <tableViewController id="bcf-ga-PC1" customClass="HighScoresViewController" customModule="cuberunner" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3fA-g2-eTz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScoreCell" textLabel="usb-1p-RFN" style="IBUITableViewCellStyleDefault" id="grP-Q9-gLf">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grP-Q9-gLf" id="h53-VB-UZ9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usb-1p-RFN">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bcf-ga-PC1" id="hQh-ru-kdd"/>
+                            <outlet property="delegate" destination="bcf-ga-PC1" id="iLt-BQ-dWL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="High Scores" id="wU1-Ze-ywA">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="L3q-OW-2Mg">
+                            <connections>
+                                <action selector="backTapped:" destination="bcf-ga-PC1" id="LtF-tg-FqZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9fk-XA-T3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="1196"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iSV-aL-2KN">
+            <objects>
+                <navigationController id="u9M-6H-HOG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WFH-VQ-HyY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bcf-ga-PC1" kind="relationship" relationship="rootViewController" id="sYI-Pc-h6y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQ7-Fb-upT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445" y="1196"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="highscore" width="243" height="34"/>
+        <image name="highscore" width="732" height="102"/>
         <image name="highscores" width="819" height="135"/>
         <image name="hud" width="1920" height="1080"/>
         <image name="logo" width="1263" height="354"/>

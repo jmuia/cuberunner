@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC13A9501CB1524900AC53E7 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13A94F1CB1524900AC53E7 /* HighScores.swift */; };
+		DC13A9521CB15AB400AC53E7 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC13A9511CB15AB400AC53E7 /* HighScoresViewController.swift */; };
 		DC6D44BD1CAF53CF00242D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */; };
 		DC6D44BF1CAF53CF00242D65 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */; };
 		DC6D44C21CAF53CF00242D65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6D44C01CAF53CF00242D65 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC13A94F1CB1524900AC53E7 /* HighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighScores.swift; path = ../HighScores.swift; sourceTree = "<group>"; };
+		DC13A9511CB15AB400AC53E7 /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		DC6D44B91CAF53CF00242D65 /* cuberunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cuberunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		DC6D44BB1CAF53CF00242D65 /* cuberunner */ = {
 			isa = PBXGroup;
 			children = (
+				DC13A94F1CB1524900AC53E7 /* HighScores.swift */,
 				DC6D44BC1CAF53CF00242D65 /* AppDelegate.swift */,
 				DC6D44BE1CAF53CF00242D65 /* MenuViewController.swift */,
 				DC6D44C01CAF53CF00242D65 /* Main.storyboard */,
@@ -141,6 +146,7 @@
 				DC6D44C81CAF53CF00242D65 /* Info.plist */,
 				DC6D44CE1CAF5A7600242D65 /* ScannerViewController.swift */,
 				DC7D15901CAF75DD00ED0DB1 /* ControllerViewController.swift */,
+				DC13A9511CB15AB400AC53E7 /* HighScoresViewController.swift */,
 			);
 			path = cuberunner;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 			files = (
 				DC7D15911CAF75DD00ED0DB1 /* ControllerViewController.swift in Sources */,
 				DC6D44BF1CAF53CF00242D65 /* MenuViewController.swift in Sources */,
+				DC13A9501CB1524900AC53E7 /* HighScores.swift in Sources */,
+				DC13A9521CB15AB400AC53E7 /* HighScoresViewController.swift in Sources */,
 				DC6D44CF1CAF5A7600242D65 /* ScannerViewController.swift in Sources */,
 				DC6D44BD1CAF53CF00242D65 /* AppDelegate.swift in Sources */,
 			);

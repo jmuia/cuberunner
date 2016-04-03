@@ -110,9 +110,18 @@ class ControllerViewController: UIViewController {
             
             let json = data.first as! Dictionary<String, Int>
             
-            self.scoreImageView.hidden = false
-            self.highscoreLabel.text = String(json["score"]!)
+            let score = json["score"]!
+            
+            if (score > HighScores.highest()) {
+                self.highscoreImageView.hidden = false
+                self.highscoreLabel.text = String(score)
+            } else {
+                self.scoreImageView.hidden = false
+                self.highscoreLabel.text = String(score)
+            }
+            
             self.highscoreLabel.hidden = false
+            HighScores.addScore(score)
             
             self.gameOver = true
             self.resumeImageView.image = UIImage(named: "replay")!
