@@ -94,15 +94,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func transitionToMenu() {
-        if let menuViewController = storyboard!.instantiateViewControllerWithIdentifier("menu") as? MenuViewController {
-            presentViewController(menuViewController, animated: true, completion: nil)
-        }
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func transitionToGame(gameId: String) {
+        
         if let controllerViewController = storyboard!.instantiateViewControllerWithIdentifier("controller") as? ControllerViewController {
             controllerViewController.gameId = gameId
-            presentViewController(controllerViewController, animated: true, completion: nil)
+            
+            let pvc = self.presentingViewController!
+            
+            pvc.dismissViewControllerAnimated(false, completion: {
+                pvc.presentViewController(controllerViewController, animated: true, completion: nil)
+            })
+            
         }
     }
     

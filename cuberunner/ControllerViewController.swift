@@ -23,6 +23,12 @@ class ControllerViewController: UIViewController {
         
         gameIdLabel.text = gameId
         
+        // TODO - connect to socket + setup handlers
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if !motionManager.deviceMotionAvailable {
             let uiAlert = UIAlertController(title: "Device Error", message: "Device is not supported.", preferredStyle: .Alert)
             uiAlert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: { action in self.transitionToMenu() }))
@@ -30,23 +36,24 @@ class ControllerViewController: UIViewController {
             return
         }
         
-        // TODO - connect to socket + setup handlers
-        
         motionManager.deviceMotionUpdateInterval = 0.1
         let queue = NSOperationQueue()
         motionManager.startDeviceMotionUpdatesToQueue(queue) { (data, error) in
-            data?.attitude.pitch < -0.05 // right-ish
-            data?.attitude.pitch > 0.05 // left-ish
+            
+            let quat = (data?.attitude.quaternion)!
+            let pitch = self.rad2deg(atan2(2*(quat.x*quat.w + quat.y*quat.z), 1 - 2*quat.x*quat.x - 2*quat.z*quat.z))
+
+            print (pitch)
         }
-        
-        
-        
     }
     
+    func rad2deg(rad: Double) -> Double {
+        return (180/M_PI)*rad
+    }
+
+    
     func transitionToMenu() {
-        if let menuViewController = storyboard!.instantiateViewControllerWithIdentifier("menu") as? MenuViewController {
-            presentViewController(menuViewController, animated: true, completion: nil)
-        }
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
