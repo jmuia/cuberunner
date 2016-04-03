@@ -45,17 +45,36 @@
                                     <segue destination="B1t-xv-N0q" kind="show" action="showDetailViewController:sender:" id="wGX-LE-Ctz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fZ-Ae-IMq">
-                                <rect key="frame" x="277" y="520" width="46" height="30"/>
+                            <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fZ-Ae-IMq">
+                                <rect key="frame" x="180" y="520.5" width="240" height="39.5"/>
                                 <connections>
                                     <segue destination="u9M-6H-HOG" kind="show" id="7Cy-VX-1JS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open on another device" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="25e-3C-cGy">
+                                <rect key="frame" x="40" y="523.5" width="520" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://cuberunner.herokuapp.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fu2-Z8-b5I">
+                                <rect key="frame" x="40" y="535" width="520" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.76729043002182307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and then tap play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYh-MP-kE0">
+                                <rect key="frame" x="40" y="561.5" width="520" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4fZ-Ae-IMq" firstAttribute="centerX" secondItem="Tb0-ik-yKk" secondAttribute="centerX" id="2nO-wS-iMb"/>
+                            <constraint firstItem="Fu2-Z8-b5I" firstAttribute="bottom" secondItem="YYh-MP-kE0" secondAttribute="top" id="2wm-Si-mSP"/>
                             <constraint firstItem="XU3-jp-I2z" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="5g6-9W-oRg"/>
+                            <constraint firstItem="25e-3C-cGy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Gn-XX-gI7"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A27-gy-C2D"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="centerY" secondItem="XU3-jp-I2z" secondAttribute="centerY" id="BeO-y1-kGE"/>
                             <constraint firstItem="4fZ-Ae-IMq" firstAttribute="centerY" secondItem="Tb0-ik-yKk" secondAttribute="centerY" id="KcI-KL-lzi"/>
@@ -65,12 +84,19 @@
                             <constraint firstItem="1OT-98-B6d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yvs-n9-NvH"/>
                             <constraint firstItem="7hK-94-DPd" firstAttribute="height" secondItem="XU3-jp-I2z" secondAttribute="height" id="ZkU-fy-7ld"/>
                             <constraint firstItem="4fZ-Ae-IMq" firstAttribute="width" secondItem="Tb0-ik-yKk" secondAttribute="width" id="bjT-zC-skb"/>
+                            <constraint firstItem="Fu2-Z8-b5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dAp-7R-4jV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Tb0-ik-yKk" secondAttribute="bottom" constant="40" id="dVH-TT-VlN"/>
+                            <constraint firstItem="25e-3C-cGy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="e6Z-d5-8HY"/>
                             <constraint firstItem="1OT-98-B6d" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="gdu-5s-isK"/>
                             <constraint firstItem="Tb0-ik-yKk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="gq8-eu-8e3"/>
+                            <constraint firstItem="YYh-MP-kE0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nrR-Xp-MXN"/>
+                            <constraint firstItem="25e-3C-cGy" firstAttribute="top" secondItem="XU3-jp-I2z" secondAttribute="bottom" constant="28" id="osS-OJ-OzP"/>
+                            <constraint firstItem="YYh-MP-kE0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="qCd-Hy-1CX"/>
                             <constraint firstItem="Tb0-ik-yKk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rMg-UG-jGz"/>
+                            <constraint firstItem="Fu2-Z8-b5I" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-80" id="rrB-I8-p6N"/>
                             <constraint firstItem="1OT-98-B6d" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="w5d-PN-A3N"/>
                             <constraint firstItem="XU3-jp-I2z" firstAttribute="top" secondItem="1OT-98-B6d" secondAttribute="bottom" constant="40" id="wGr-WM-nrI"/>
+                            <constraint firstItem="25e-3C-cGy" firstAttribute="bottom" secondItem="Fu2-Z8-b5I" secondAttribute="top" constant="8" symbolic="YES" id="x9z-s7-sFo"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -348,7 +374,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="highscore" width="732" height="102"/>
+        <image name="highscore" width="243" height="34"/>
         <image name="highscores" width="819" height="135"/>
         <image name="hud" width="1920" height="1080"/>
         <image name="logo" width="1263" height="354"/>
